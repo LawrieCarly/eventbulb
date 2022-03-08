@@ -8,14 +8,20 @@
   --gray-light: #F9FAFB;
   --red: #FECACA;
   --red-accent: #FCA5A5;
+  --yellow-storytime: #FBD333;
+  --blue-storytime: #58C8EE;
+  --pink-storytime: #E84E96;
+  --green-storytime: #6DD23B;
 }
 
+
 body {
-  background-color: var(--yellow);
+  background-color: var(--yellow-storytime);
   display: flex;
   flex-direction: column;
   height: 100vh;
-  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 2rem;
 }
 
 a {
@@ -31,11 +37,19 @@ h3 {
   font-size: 1.125rem;
 }
 
+h4 {
+  font-size: 0.90rem;
+}
+
+p {
+  padding-bottom: 0.50rem;
+}
+
 .navbar {
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
-  background-color: white;
+  background-color: var(--blue-storytime);
   border-radius: 0.25rem;
   padding: 1rem;
   box-shadow: var(--shadow)
@@ -49,14 +63,20 @@ h3 {
 .navbar .logo {
   margin-right: 0.5rem;
   height: 7rem;
-  width: 7
-rem;
+  width: 7rem;
   object-fit: cover;
   border-radius: 100%;
 }
 
 .site-heading {
+  color: var(--yellow-storytime);
+  padding-right: 90px;
   font-size: 1.5rem;
+  font-weight: bolder;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  text-shadow: black;
+
 }
 
 .navbar .site-heading {
@@ -74,7 +94,7 @@ rem;
 }
 
 .navbar nav > ul > li {
-  margin-right: 3rem;
+  margin-right: 1rem;
   list-style: none;
 }
 
@@ -100,7 +120,7 @@ main {
 }
 
 .card-background {
-  background-color: var(--gray-light);
+  background-color: var(--pink-storytime);
   padding: 0.5rem;
   box-shadow: var(--shadow);
   border-radius: 0.5rem;
@@ -114,6 +134,10 @@ main {
   background-color: white;
   border-radius: 0.5rem;
   box-shadow: var(--shadow-small)
+}
+
+.list-heading {
+  font-weight: bolder;
 }
 
 .wrap-content {
@@ -173,6 +197,7 @@ input[type="text"], input[type="password"], textarea {
 .button.gray {
   background-color: var(--gray);
   border: 2px solid var(--gray-accent);
+  border-radius: 5px;
 }
 
 .button.red {
@@ -263,6 +288,7 @@ input[type="text"], input[type="password"], textarea {
 
 .event-title {
   font-size: 2rem;
+  font-weight: 900;
 }
 
 .event-details > .event-info {
@@ -276,8 +302,18 @@ input[type="text"], input[type="password"], textarea {
 }
 
 .event-details .event-cost {
-  font-size: 1.125rem;
+  font-size: 1.25rem;
 }
+
+.event-details .event-date {
+  font-size: 1.125rem;
+  font-weight: lighter;
+}
+
+.event-description {
+  font-style: italic;
+}
+
 
 .review-form {
   display: flex;

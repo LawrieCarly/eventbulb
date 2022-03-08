@@ -2,46 +2,48 @@
 {% load static %}
 
 {% block content %}
-  <main>
-    <section id="event-list" class="card-background">
-      <section class="card">
-        <h2>Upcoming Events</h2>
-      </section>
+<main>
+  <section id="event-list" class="card-background">
+    <section class="card">
+      <h2>Upcoming Events</h2>
+    </section>
+    <section class="card">
+      <form action="{% url 'events_list' %}" method="get" class="filter-controls-form">
+        <div class="filter-controls">
+          <div class="input-group">
+            <label for="is_free">Free?</label>
+            <input type="checkbox" name="is_free" id="is_free" value="0" />
+          </div>
+          <div class="input-group">
+            <label for="title">Search:</label>
+            <input type="text" name="title" id="title">
+          </div>
+        </div>
+
+        <div>
+          <a href="{% url 'events_list' %}" class="button">Clear</a>
+          <button type="submit" class="button gray">
+          Filter
+          </button>
+        </div>
+      </form>
+    </section>
+    <ul class="events-list">
+      {% for event in events %}
       <ul class="events-list">
         <li class="card event">
           <img class="event-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
           <div class="event-info">
-            <h2>CodeClan Opening Party</h2>
-            <h3>2015-10-05 | £0</h3>
-            <p>Accelerate your career! We’re Scotland’s first digital bootcamp. We transform careers through software development and data analysis training.</p>
+            <h2>{{event.title}}</h2>
+            <h3>{{event.datetime}} | Cost: £{{event.cost}}</h3>
+            <p class="event-description">Description: {{event.description}}</p>
           </div>
           <div class="event-controls">
-            <a href="{% url 'events_details' %}" class="button gray">Details</a>
-          </div>
-        </li>
-        <li class="card event">
-          <img class="event-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
-          <div class="event-info">
-            <h2>CodeClan 100 Graduates Celebrations</h2>
-            <h3>2016-11-30 | £0</h3>
-            <p>Accelerate your career! We’re Scotland’s first digital bootcamp. We transform careers through software development and data analysis training.</p>
-          </div>
-          <div class="event-controls">
-            <a href="{% url 'events_details' %}" class="button gray">Details</a>
-          </div>
-        </li>
-        <li class="card event">
-          <img class="event-image" src="{% static 'images/image_placeholder.jpg' %}" alt="">
-          <div class="event-info">
-            <h2>CodeClan 1000 Graduates Celebrations</h2>
-            <h3>2020-08-13 | £0</h3>
-            <p></p>
-          </div>
-          <div class="event-controls">
-            <a href="{% url 'events_details' %}" class="button gray">Details</a>
+            <a href="{% url 'details_page' event.id %}"><button class= "button yellow">Further Details</button></a>
           </div>
         </li>
       </ul>
+      {% endfor %}
     </section>
   </main>
 {% endblock %}

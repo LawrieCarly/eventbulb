@@ -6,7 +6,7 @@
     <div class="card-background half-width event-details">
       <section class="card event-header">
         <div class="event-info">
-          <h2 class="event-title">Django Meetup</h2>
+          <h2 class="event-title">{{event.title}}</h2>
           <h3></h3>
         </div>
       </section>
@@ -14,8 +14,9 @@
           <img src="{% static 'images/image_placeholder.jpg' %}" alt="">
       </section>
       <section class="card">
-        <p class="event-cost">Price: £0.00</p>
-        <p>A meetup for Django developers and people who are interested in Django development. People of all experience levels are welcome, from beginners to pros!</p>
+        <h4 class="event-date">{{event.datetime}}</h4>
+        <p class="event-cost">Price: £{{event.cost}}</p>
+        <p class="event-description">{{event.description}}</p>
       </section>
       </div>
     </div>
