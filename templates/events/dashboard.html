@@ -2,12 +2,18 @@
 {% load static %}
 
 {% block content %}
-<main>
-  <section id="event-list" class="card-background">
-    <section class="card">
-      <h2>Upcoming Events</h2>
+<main class="cols-2">
+    <section id="attending" class="card-background">
+      <section class="card">
+        <h2>Upcoming Events</h2>
+      </section>
+      {% include 'partials/_events_list.html' with events=attending %}
     </section>
-    {% include 'partials/_events_list.html' with eventsList=events %}
-    </section>
+      <section id="attended" class="card-background">
+        <section class="card">
+          <h2>Past Events</h2>
+        </section>
+        {% include 'partials/_past_events.html' with events=attended %}
+      </section>
   </main>
 {% endblock %}
